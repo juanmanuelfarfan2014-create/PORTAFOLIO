@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juan Manuel Farfán | Análisis de Sistemas y Desarrollo de Software</title>
+  <meta name="description" content="Portfolio de Juan Manuel Farfán, estudiante de Análisis de Sistemas y Desarrollo de Software en Salta, Argentina.">
+  <style>
+    :root {
+      --fondo: #0b1120;
+      --tarjeta: #1e293b;
+      --borde: #334155;
+      --texto: #f1f5f9;
+      --suave: #94a3b8;
+      --acento: #38bdf8;
+      --acento-hover: #0ea5e9;
+      --texto-boton: #082f49;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 17px;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--fondo);
+      color: var(--texto);
+      line-height: 1.7;
+      font-size: 1.06rem;
+    }
+
+    a {
+      color: var(--acento);
+      text-decoration: none;
+    }
+
+    a:hover, a:focus-visible {
+      text-decoration: underline;
+    }
+
+    .contenedor {
+      width: min(980px, 92%);
+      margin: 0 auto;
+    }
+
+    /* Encabezado y navegación */
+    header {
+      border-bottom: 1px solid var(--borde);
+      padding: 1.1rem 0;
+      position: sticky;
+      top: 0;
+      background: rgba(11, 17, 32, 0.94);
+      backdrop-filter: blur(8px);
+      z-index: 10;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .marca {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--texto);
+    }
+
+    .enlaces-nav {
+      display: flex;
+      gap: 1.4rem;
+      flex-wrap: wrap;
+      font-size: 1rem;
+    }
+
+    /* Secciones */
+    section {
+      padding: 4.2rem 0;
+    }
+
+    .hero {
+      padding: 4.5rem 0 3.5rem;
+    }
+
+    .hero-contenido {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-texto {
+      flex: 1 1 420px;
+    }
+
+    .foto-perfil {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--acento);
+      flex-shrink: 0;
+    }
+
+    .hero-etiqueta {
+      color: var(--acento);
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 5vw, 3.4rem);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .hero-desc {
+      color: var(--suave);
+      font-size: 1.18rem;
+      max-width: 62ch;
+      margin-bottom: 1.8rem;
+    }
+
+    h2 {
+      font-size: clamp(1.7rem, 3.5vw, 2.2rem);
+      margin-bottom: 1.4rem;
+      color: var(--acento);
+    }
+
+    .sobre-texto {
+      color: var(--suave);
+      font-size: 1.1rem;
+      max-width: 72ch;
+    }
+
+    /* Botones */
+    .botones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.45rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.02rem;
+      background: var(--acento);
+      color: var(--texto-boton);
+      border: 2px solid var(--acento);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn:hover, .btn:focus-visible {
+      background: var(--acento-hover);
+      border-color: var(--acento-hover);
+      text-decoration: none;
+    }
+
+    .btn-borde {
+      background: transparent;
+      color: var(--acento);
+    }
+
+    .btn-borde:hover, .btn-borde:focus-visible {
+      background: var(--acento);
+      color: var(--texto-boton);
+    }
+
+    /* Tarjeta única de proyecto */
+    .tarjeta-proyecto {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: 14px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+    }
+
+   .tarjeta-proyecto img {
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  max-height: 340px;
+  object-fit: contain;
+  background-color: #0b1120;
+  padding: 0.5rem;
+  display: block;
+}
+
+    .tarjeta-cuerpo {
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .tarjeta-cuerpo h3 {
+      font-size: 1.55rem;
+      color: var(--texto);
+    }
+
+    .tarjeta-cuerpo p {
+      color: var(--suave);
+      font-size: 1.06rem;
+    }
+
+    .rol {
+      color: var(--texto) !important;
+      font-size: 1rem !important;
+    }
+
+    .etiquetas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      list-style: none;
+      margin-top: 0.2rem;
+    }
+
+    .etiquetas li {
+      background: var(--fondo);
+      border: 1px solid var(--borde);
+      color: var(--acento);
+      padding: 0.28rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    .tarjeta-pie {
+      margin-top: auto;
+      padding-top: 0.8rem;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    /* Contacto */
+    .contacto-lista {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      font-size: 1.08rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--borde);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--suave);
+      font-size: 0.98rem;
+    }
+
+    @media (max-width: 760px) {
+      .hero-contenido {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+
+      .botones {
+        justify-content: center;
+      }
+
+      .tarjeta-proyecto {
+        grid-template-columns: 1fr;
+      }
+
+      .tarjeta-proyecto img {
+        max-height: 240px;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="contenedor nav">
+      <a class="marca" href="#">Juan Manuel Farfán</a>
+      <nav class="enlaces-nav" aria-label="Navegación principal">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#proyecto">Proyecto</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="contenedor hero-contenido">
+        <div class="hero-texto">
+          <p class="hero-etiqueta">Salta, Argentina</p>
+          <h1>Juan Manuel Farfán</h1>
+          <p class="hero-desc">
+            Estudiante de la Tecnicatura Superior en Análisis de Sistemas y Desarrollo de Software. Trabajo principalmente con Python, SQL y Supabase en backend y bases de datos, y con JavaScript, React, HTML5 y CSS3 en desarrollo web.
+          </p>
+          <div class="botones">
+            <a class="btn" href="#proyecto">Ver proyecto</a>
+            <a class="btn btn-borde" href="assets/Farfan_Juan_CV.pdf" download>Descargar CV (PDF)</a>
+          </div>
+        </div>
+        <img class="foto-perfil" src="assets/foto-perfil.jpg" alt="Foto de perfil de Juan Manuel Farfán">
+      </div>
+    </section>
+
+    <section id="sobre-mi">
+      <div class="contenedor">
+        <h2>Sobre mí</h2>
+        <p class="sobre-texto">
+          Soy estudiante de la Tecnicatura Superior en Análisis de Sistemas y Desarrollo de Software en el Instituto de Educación Superior N° 6.001 "Gral. Manuel Belgrano" (Salta, Argentina).
+Trabajo principalmente con Python, SQL y Supabase en el lado de datos y backend, y con JavaScript, React, HTML5 y CSS3 en el frontend. En proyectos como Festia, un sistema de reservas de salones y eventos, participé en el relevamiento de requerimientos, el diseño de modelos entidad-relación, las reglas de negocio y el control de versiones con Git y GitHub. También incorporo herramientas de IA asistida para destrabar dudas, acelerar borradores y analizar alternativas técnicas, validando y probando siempre cada solución con criterio propio.
+Busco mis primeras oportunidades junior, pasantías o proyectos donde seguir aprendiendo, aportar soluciones ordenadas y trabajar en equipo.
+        </p>
+      </div>
+    </section>
+
+    <section id="proyecto">
+      <div class="contenedor">
+        <h2>Proyecto</h2>
+        <article class="tarjeta-proyecto">
+          <img src="assets/proyecto-festia.jpg" alt="Captura del proyecto Festia">
+          <div class="tarjeta-cuerpo">
+            <h3>Festia</h3>
+            <p>
+              Sistema de reservas de salones y eventos con validación de superposición de turnos (HTTP 409), modelo entidad-relación normalizado, API REST con disponibilidad mensual y scripts de carga inicial.
+            </p>
+            <p class="rol"><strong>Mi rol:</strong> Desarrollo backend, modelado de base de datos y relevamiento de requerimientos.</p>
+            <ul class="etiquetas" aria-label="Tecnologías">
+              <li>Python</li>
+              <li>SQL</li>
+              <li>Supabase</li>
+              <li>API REST</li>
+            </ul>
+            <div class="tarjeta-pie">
+              <a href="https://github.com/SheilaWayar/Festia" target="_blank" rel="noopener">Ver repositorio en GitHub →</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="contenedor">
+        <h2>Contacto</h2>
+        <p class="sobre-texto">Podés escribirme por correo o conectar en LinkedIn.</p>
+        <div class="contacto-lista">
+          <a href="mailto:juanmanuelfarfan9@gmail.com">juanmanuelfarfan9@gmail.com</a>
+          <a href="https://www.linkedin.com/in/juan-farfan-/" target="_blank" rel="noopener">LinkedIn: juan-farfan-</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="contenedor">
+      <p>&copy; 2026 Juan Manuel Farfán</p>
+    </div>
+  </footer>
+
+</body>
+</html>
